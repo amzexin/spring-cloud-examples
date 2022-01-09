@@ -10,11 +10,11 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>xxx-api</artifactId>
-    <version>${xxx-api.version}</version>
+    <artifactId>user-service-api</artifactId>
+    <version>${user-service-api.version}</version>
     <packaging>jar</packaging>
-    <name>xxx-api</name>
-    <description>xxx-api</description>
+    <name>user-service-api</name>
+    <description>user-service-api</description>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->

@@ -9,10 +9,10 @@
         <version>0.0.1</version>
     </parent>
 
-    <artifactId>xxx-service</artifactId>
+    <artifactId>user-service</artifactId>
     <packaging>war</packaging>
-    <name>xxx-service</name>
-    <description>xxx-service</description>
+    <name>user-service</name>
+    <description>user-service</description>
 
     <dependencies>
         <!-- SpringBoot -->
@@ -34,7 +34,7 @@
 
         <dependency>
             <groupId>com.lizx</groupId>
-            <artifactId>xxx-api</artifactId>
+            <artifactId>user-service-api</artifactId>
         </dependency>
     </dependencies>
 

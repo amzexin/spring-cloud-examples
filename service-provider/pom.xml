@@ -19,13 +19,13 @@
     <description>service-provider</description>
 
     <modules>
-        <module>xxx-api</module>
-        <module>xxx-service</module>
+        <module>user-service-api</module>
+        <module>user-service</module>
     </modules>
 
     <properties>
         <java.version>1.8</java.version>
-        <xxx-api.version>0.0.1</xxx-api.version>
+        <user-service-api.version>0.0.1</user-service-api.version>
     </properties>
 
     <dependencyManagement>
@@ -48,8 +48,8 @@
             </dependency>
             <dependency>
                 <groupId>com.lizx</groupId>
-                <artifactId>xxx-api</artifactId>
-                <version>${xxx-api.version}</version>
+                <artifactId>user-service-api</artifactId>
+                <version>${user-service-api.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
