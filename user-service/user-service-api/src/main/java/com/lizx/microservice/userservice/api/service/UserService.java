@@ -1,16 +1,22 @@
 package com.lizx.microservice.userservice.api.service;
 
 import com.lizx.microservice.userservice.api.dto.*;
-import com.lizx.xxx.api.dto.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 
 public interface UserService {
 
-    CommonResult<AddUserResponseDTO> addUser(AddUserRequestDTO addUserRequestDTO);
+    @PostMapping("/user/add")
+    CommonResult<AddUserResponseDTO> addUser(@RequestBody AddUserRequestDTO addUserRequestDTO);
 
-    CommonResult<Object> deleteUser(DeleteUserRequestDTO deleteUserRequestDTO);
+    @PostMapping("/user/delete")
+    CommonResult<Object> deleteUser(@RequestBody DeleteUserRequestDTO deleteUserRequestDTO);
 
-    CommonResult<Object> updateUser(UpdateUserRequestDTO updateUserRequestDTO);
+    @PostMapping("/user/update")
+    CommonResult<Object> updateUser(@RequestBody UpdateUserRequestDTO updateUserRequestDTO);
 
-    CommonResult<QueryUserResponseDTO> queryUser(QueryUserRequestDTO queryUserRequestDTO);
+    @GetMapping("/user/query")
+    CommonResult<QueryUserResponseDTO> queryUser(@RequestBody QueryUserRequestDTO queryUserRequestDTO);
 
 }
