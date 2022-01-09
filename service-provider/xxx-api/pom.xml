@@ -11,11 +11,10 @@
     </parent>
 
     <artifactId>xxx-api</artifactId>
-
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+    <version>${xxx-api.version}</version>
+    <packaging>jar</packaging>
+    <name>xxx-api</name>
+    <description>xxx-api</description>
 
     <dependencies>
         <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
@@ -24,8 +23,6 @@
             <artifactId>lombok</artifactId>
             <scope>provided</scope>
         </dependency>
-
-
     </dependencies>
 
     <build>
@@ -33,6 +30,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>3.2.1</version>
                 <configuration>
                     <attach>true</attach>
                 </configuration>
