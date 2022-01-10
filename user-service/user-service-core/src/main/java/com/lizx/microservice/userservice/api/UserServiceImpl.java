@@ -35,4 +35,14 @@ public class UserServiceImpl implements UserService {
         responseDTO.setPassword(System.currentTimeMillis() + "");
         return CommonResult.success(responseDTO);
     }
+
+    @Override
+    public CommonResult<GetUserResponseDTO> getUser(int userId) {
+        GetUserResponseDTO responseDTO = new GetUserResponseDTO();
+        responseDTO.setUserId(Integer.parseInt(new SimpleDateFormat("ss").format(new Date())));
+        responseDTO.setUsername(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
+        responseDTO.setPassword(System.currentTimeMillis() + "");
+        return CommonResult.success(responseDTO);
+    }
+
 }
