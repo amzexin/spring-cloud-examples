@@ -5,6 +5,7 @@
 **/mvnw.cmd
 /**/src/main/**/target/
 /**/src/test/**/target/
+**/*.log
 
 ### STS ###
 .apt_generated
