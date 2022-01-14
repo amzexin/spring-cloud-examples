@@ -26,12 +26,15 @@
     <properties>
         <java.version>1.8</java.version>
         <user-service-api.version>0.0.1</user-service-api.version>
+        <home.mvnreposotory>file:/Users/lizexin/Vincent/Applications/apache-maven-repository</home.mvnreposotory>
+        <company.mvnreposotory>file:/Users/lizexin/lizx/applications/apache-maven-repository</company.mvnreposotory>
+        <mvnrepository>${company.mvnreposotory}</mvnrepository>
     </properties>
 
     <distributionManagement>
         <repository>
             <id>localRepository</id>
-            <url>file:/Users/lizexin/Vincent/Applications/apache-maven-repository</url>
+            <url>${mvnrepository}</url>
         </repository>
     </distributionManagement>
 
