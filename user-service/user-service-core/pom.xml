@@ -33,12 +33,14 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
 
+        <!-- tools -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
         </dependency>
 
+        <!-- user-service -->
         <dependency>
             <groupId>com.lizx.microservice</groupId>
             <artifactId>user-service-api</artifactId>
