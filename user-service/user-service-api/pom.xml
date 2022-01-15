@@ -24,9 +24,8 @@
             <scope>provided</scope>
         </dependency>
         <dependency>
-            <groupId>com.lizx</groupId>
+            <groupId>com.lizx.common</groupId>
             <artifactId>common-bean</artifactId>
-            <version>0.0.1</version>
         </dependency>
 
         <!-- Spring -->

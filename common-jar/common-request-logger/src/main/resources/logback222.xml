@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="true" scanPeriod="60 seconds" debug="false">
+
+    <property name="logPath" value="logs"/>
+
+    <appender name="requestMonitorAppender" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>${logPath}/requestMonitor.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>${logPath}/requestMonitor-%d{yyyy-MM-dd}_%i.log.zip</fileNamePattern>
+            <timeBasedFileNamingAndTriggeringPolicy class="ch.qos.logback.core.rolling.SizeAndTimeBasedFNATP">
+                <maxFileSize>100MB</maxFileSize>
+            </timeBasedFileNamingAndTriggeringPolicy>
+            <!-- 保存前30天的日志文件 -->
+            <maxHistory>3</maxHistory>
+        </rollingPolicy>
+        <!--格式化编码-->
+        <encoder>
+            <pattern>%msg%n</pattern>
+            <charset>UTF-8</charset>
+        </encoder>
+    </appender>
+
+    <root level="INFO"/>
+
+    <logger name="requestMonitor" level="info" additivity="false">
+        <appender-ref ref="requestMonitorAppender"/>
+    </logger>
+
+</configuration>

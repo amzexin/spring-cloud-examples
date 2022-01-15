@@ -23,20 +23,6 @@
         <module>user-service-core</module>
     </modules>
 
-    <properties>
-        <java.version>1.8</java.version>
-        <home.mvnreposotory>file:/Users/lizexin/Vincent/Applications/apache-maven-repository</home.mvnreposotory>
-        <company.mvnreposotory>file:/Users/lizexin/lizx/applications/apache-maven-repository</company.mvnreposotory>
-        <mvnrepository>${home.mvnreposotory}</mvnrepository>
-    </properties>
-
-    <distributionManagement>
-        <repository>
-            <id>localRepository</id>
-            <url>${mvnrepository}</url>
-        </repository>
-    </distributionManagement>
-
     <dependencyManagement>
         <dependencies>
             <!-- https://mvnrepository.com/artifact/org.springframework.cloud/spring-cloud-dependencies -->
@@ -56,7 +42,7 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
-                <groupId>com.lizx</groupId>
+                <groupId>com.lizx.common</groupId>
                 <artifactId>common-bean</artifactId>
                 <version>0.0.1</version>
             </dependency>
@@ -74,8 +60,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
+                    <source>1.8</source>
+                    <target>1.8</target>
                 </configuration>
             </plugin>
             <plugin>

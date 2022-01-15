@@ -1,4 +1,4 @@
-package com.lizx.microservice.userserviceconsumer.common;
+package com.lizx.microservice.userservice.common;
 
 import com.lizx.common.bean.CommonResult;
 import lombok.extern.slf4j.Slf4j;
