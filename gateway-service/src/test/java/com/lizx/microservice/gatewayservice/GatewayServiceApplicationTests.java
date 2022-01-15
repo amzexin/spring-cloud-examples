@@ -1,10 +1,10 @@
-package com.lizx.microservice.userservice.consumer;
+package com.lizx.microservice.gatewayservice;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class UserServiceConsumerApplicationTests {
+class GatewayServiceApplicationTests {
 
     @Test
     void contextLoads() {

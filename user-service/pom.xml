@@ -25,10 +25,9 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <user-service-api.version>0.0.1</user-service-api.version>
         <home.mvnreposotory>file:/Users/lizexin/Vincent/Applications/apache-maven-repository</home.mvnreposotory>
         <company.mvnreposotory>file:/Users/lizexin/lizx/applications/apache-maven-repository</company.mvnreposotory>
-        <mvnrepository>${company.mvnreposotory}</mvnrepository>
+        <mvnrepository>${home.mvnreposotory}</mvnrepository>
     </properties>
 
     <distributionManagement>
@@ -57,9 +56,14 @@
                 <scope>import</scope>
             </dependency>
             <dependency>
+                <groupId>com.lizx</groupId>
+                <artifactId>common-bean</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
                 <groupId>com.lizx.microservice</groupId>
                 <artifactId>user-service-api</artifactId>
-                <version>${user-service-api.version}</version>
+                <version>0.0.1</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
@@ -69,12 +73,27 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
-                <version>3.8.1</version>
                 <configuration>
                     <source>${java.version}</source>
                     <target>${java.version}</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <configuration>
+                    <attach>true</attach>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>compile</phase>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
         </plugins>
     </build>
 

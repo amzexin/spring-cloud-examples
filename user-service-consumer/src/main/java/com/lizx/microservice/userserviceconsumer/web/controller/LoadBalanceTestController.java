@@ -1,9 +1,8 @@
-package com.lizx.microservice.userservice.consumer.web.controller;
+package com.lizx.microservice.userserviceconsumer.web.controller;
 
 import com.lizx.microservice.userservice.api.dto.CommonResult;
 import com.lizx.microservice.userservice.api.dto.QueryUserRequestDTO;
 import com.lizx.microservice.userservice.api.service.UserService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,9 +14,9 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @RestController
-public class CallUserServiceController {
+public class LoadBalanceTestController {
 
-    @Autowired
+    @Resource
     private DiscoveryClient discoveryClient;
 
     @Resource(name = "restTemplate")
@@ -40,7 +39,7 @@ public class CallUserServiceController {
      * @param userId 用户唯一编号
      * @return 用户信息
      */
-    @GetMapping("/call/v1/user/get/{userId}")
+    @GetMapping("/load-balance-test/case1/user/get/{userId}")
     public Object getUserV1(@PathVariable("userId") int userId) {
         // 获取服务所有可用的实例
         List<ServiceInstance> instances = discoveryClient.getInstances(SERVICE_ID);
@@ -63,7 +62,7 @@ public class CallUserServiceController {
      * @param userId 用户唯一编号
      * @return 用户信息
      */
-    @GetMapping("/call/v2/user/get/{userId}")
+    @GetMapping("/load-balance-test/case2/user/get/{userId}")
     public Object getUserV2(@PathVariable("userId") int userId) {
         String url = String.format("http://%s/user/get/%d", SERVICE_ID, userId);
         return loadBalancedRestTemplate.getForObject(url, CommonResult.class);
@@ -76,7 +75,7 @@ public class CallUserServiceController {
      * @param userId 用户唯一编号
      * @return 用户信息
      */
-    @GetMapping("/call/v3/user/get/{userId}")
+    @GetMapping("/load-balance-test/case3/user/get/{userId}")
     public Object getUserV3(@PathVariable("userId") int userId) {
         return userService.getUser(userId);
     }
@@ -91,9 +90,9 @@ public class CallUserServiceController {
      * 解决这个问题，需要让Feign使用HttpClient，详见：
      * https://www.jianshu.com/p/d063c40df8d6?utm_campaign
      *
-     * @return
+     * @return 用户信息
      */
-    @GetMapping("/call/v1/user/query")
+    @GetMapping("/load-balance-test/case1/user/query")
     public Object queryUser() {
         QueryUserRequestDTO requestDTO = new QueryUserRequestDTO();
         requestDTO.setUsername("xxx");

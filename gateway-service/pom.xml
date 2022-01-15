@@ -11,11 +11,11 @@
     </parent>
 
     <groupId>com.lizx.microservice</groupId>
-    <artifactId>user-service-consumer</artifactId>
+    <artifactId>gateway-service</artifactId>
     <version>0.0.1</version>
     <packaging>war</packaging>
-    <name>user-service-consumer</name>
-    <description>user-service-consumer</description>
+    <name>gateway-service</name>
+    <description>gateway-service</description>
 
     <properties>
         <java.version>1.8</java.version>
@@ -71,21 +71,7 @@
         </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-openfeign</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>io.github.openfeign</groupId>
-            <artifactId>feign-httpclient</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-loadbalancer</artifactId>
-        </dependency>
-
-        <!-- Spring Cloud LoadBalancer is currently working with the default cache. You can switch to using Caffeine cache, by adding it to the classpath.-->
-        <dependency>
-            <groupId>com.github.ben-manes.caffeine</groupId>
-            <artifactId>caffeine</artifactId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
 
         <!-- tools -->
@@ -95,12 +81,6 @@
             <optional>true</optional>
         </dependency>
 
-        <!-- user-service -->
-        <dependency>
-            <groupId>com.lizx.microservice</groupId>
-            <artifactId>user-service-api</artifactId>
-            <version>0.0.1</version>
-        </dependency>
     </dependencies>
 
     <build>

@@ -1,4 +1,4 @@
-package com.lizx.microservice.userservice.consumer;
+package com.lizx.microservice.userserviceconsumer;
 
 import org.springframework.boot.builder.SpringApplicationBuilder;
 import org.springframework.boot.web.servlet.support.SpringBootServletInitializer;

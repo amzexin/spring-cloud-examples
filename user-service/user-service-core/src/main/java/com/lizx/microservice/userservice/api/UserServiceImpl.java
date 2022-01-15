@@ -1,5 +1,6 @@
 package com.lizx.microservice.userservice.api;
 
+import com.lizx.common.bean.CommonResult;
 import com.lizx.microservice.userservice.api.dto.*;
 import com.lizx.microservice.userservice.api.service.UserService;
 import org.springframework.web.bind.annotation.RestController;

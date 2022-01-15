@@ -1,13 +1,9 @@
-package com.lizx.microservice.userservice.api.dto;
-
-import lombok.Data;
+package com.lizx.common.bean;
 
 /**
  * 微服务通用返回结果
- * TODO 需要提取到公共的jar包中
  * TODO HTTP接口监控的工具待导入
  */
-@Data
 public class CommonResult<T> {
     private int code;
     private String message;
@@ -33,5 +29,29 @@ public class CommonResult<T> {
         result.setCode(500);
         result.setMessage("success exception: " + e.getMessage());
         return result;
+    }
+
+    public int getCode() {
+        return code;
+    }
+
+    public void setCode(int code) {
+        this.code = code;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public T getData() {
+        return data;
+    }
+
+    public void setData(T data) {
+        this.data = data;
     }
 }

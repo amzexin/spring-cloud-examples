@@ -1,5 +1,6 @@
 package com.lizx.microservice.userservice.api.service;
 
+import com.lizx.common.bean.CommonResult;
 import com.lizx.microservice.userservice.api.dto.*;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.web.bind.annotation.GetMapping;

@@ -1,4 +1,4 @@
-package com.lizx.microservice.userservice.consumer.common;
+package com.lizx.microservice.userserviceconsumer.common;
 
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;
 import org.springframework.context.annotation.Bean;
