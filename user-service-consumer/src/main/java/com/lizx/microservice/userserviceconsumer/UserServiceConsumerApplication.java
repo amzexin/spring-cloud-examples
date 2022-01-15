@@ -15,13 +15,13 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 public class UserServiceConsumerApplication {
 
     public static void main(String[] args) {
-        MDC.put("trace_id", "main");
+        MDC.put("trace_id", "main" + System.currentTimeMillis());
         SpringApplication.run(UserServiceConsumerApplication.class, args);
-        MDC.remove("trace_id");
 
         log.info(" ==>> application startup successful ...");
         log.info(" ==>> application startup successful ...");
         log.info(" ==>> application startup successful ...");
+        MDC.remove("trace_id");
     }
 
 }
