@@ -1,6 +1,6 @@
 package com.lizx.microservice.userserviceconsumer.web.controller;
 
-import com.lizx.microservice.userservice.api.dto.CommonResult;
+import com.lizx.common.bean.CommonResult;
 import com.lizx.microservice.userservice.api.dto.QueryUserRequestDTO;
 import com.lizx.microservice.userservice.api.service.UserService;
 import org.springframework.cloud.client.ServiceInstance;

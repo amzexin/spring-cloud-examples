@@ -47,6 +47,11 @@
                 <version>0.0.1</version>
             </dependency>
             <dependency>
+                <groupId>com.lizx.common</groupId>
+                <artifactId>common-request-logger</artifactId>
+                <version>0.0.1</version>
+            </dependency>
+            <dependency>
                 <groupId>com.lizx.microservice</groupId>
                 <artifactId>user-service-api</artifactId>
                 <version>0.0.1</version>

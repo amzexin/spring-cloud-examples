@@ -4,14 +4,10 @@ import org.dom4j.Document;
 import org.dom4j.DocumentException;
 import org.dom4j.Element;
 import org.dom4j.io.SAXReader;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.FileNotFoundException;
 import java.io.InputStream;
-import java.util.Arrays;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 /**
  * Description:
@@ -21,7 +17,7 @@ import java.util.List;
  */
 public class XMLUtil {
 
-    private static Logger rootLogger = LoggerFactory.getLogger(XMLUtil.class);
+    private static final Set<String> LOG_DIRECTORY_LIST = new HashSet<>(Arrays.asList("LOG_HOME", "logPath"));
 
     private static InputStream getResourceAsStream(String xmlName) throws FileNotFoundException {
         String localXmlPath = "/" + xmlName;
@@ -53,34 +49,33 @@ public class XMLUtil {
      * @param xmlName
      * @return
      */
-    public static String rootLogPath(String xmlName) {
-        try {
-            // 加载xml
-            Document document = loadXML(xmlName);
-            // 根节点
-            Element rootElement = document.getRootElement();
-            Iterator elementIterator = rootElement.elementIterator();
-            while (elementIterator.hasNext()) {
-                Element element = (Element) elementIterator.next();
-                // <property>节点
-                String elementName = element.getName();
-                if (!"property".equalsIgnoreCase(elementName)) {
-                    continue;
-                }
-                // name = "logPath"
-                String logPathKey = element.attributeValue("name");
-                if (!"logPath".equalsIgnoreCase(logPathKey)) {
-                    continue;
-                }
-                String logPathValue = element.attributeValue("value");
-                if (logPathValue == null || logPathValue.isEmpty()) {
-                    continue;
-                }
-
-                return logPathValue;
+    public static String rootLogPath(String xmlName) throws DocumentException, FileNotFoundException {
+        // 加载xml
+        Document document = loadXML(xmlName);
+        // 根节点
+        Element rootElement = document.getRootElement();
+        Iterator elementIterator = rootElement.elementIterator();
+        while (elementIterator.hasNext()) {
+            Element element = (Element) elementIterator.next();
+            // <property>节点
+            String elementName = element.getName();
+            if (!"property".equalsIgnoreCase(elementName)) {
+                continue;
             }
-        } catch (Exception e) {
-            rootLogger.warn("获取logPath出现异常", e);
+
+            // name = "${LOG_DIRECTORY_VARIABLE}"
+            String logPathKey = element.attributeValue("name");
+            if (!LOG_DIRECTORY_LIST.contains(logPathKey)) {
+                continue;
+            }
+
+            // 日志文件对应的目录
+            String logPathValue = element.attributeValue("value");
+            if (logPathValue == null || logPathValue.isEmpty()) {
+                continue;
+            }
+
+            return logPathValue;
         }
         return null;
     }

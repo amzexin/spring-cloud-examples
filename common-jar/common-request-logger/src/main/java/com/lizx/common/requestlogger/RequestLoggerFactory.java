@@ -14,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import java.nio.charset.StandardCharsets;
+import java.util.Arrays;
+import java.util.List;
 
 /**
  * Description:
@@ -25,9 +27,11 @@ public class RequestLoggerFactory {
 
     private static final String ROLLING_FILE_LOGGER_NAME = "requestMonitor";
 
-    private static final String LOGBACK_XML_FILENAME = "logback-spring.xml";
+    private static final List<String> LOGBACK_XML_FILENAME_LIST = Arrays.asList("logback.xml", "logback-spring.xml");
 
     private static final int MAX_HISTORY = 1;
+
+    private static Logger rootLogger = LoggerFactory.getLogger(RequestLoggerFactory.class);
 
     private static Logger requestMonitorLogger = null;
 
@@ -120,11 +124,17 @@ public class RequestLoggerFactory {
     }
 
     private static String rootLogPath() {
-        String logPath = XMLUtil.rootLogPath(LOGBACK_XML_FILENAME);
-        if (logPath == null) {
-            return "logPath_IS_UNDEFINED";
+        for (String logbackXmlFilename : LOGBACK_XML_FILENAME_LIST) {
+            try {
+                String logPath = XMLUtil.rootLogPath(logbackXmlFilename);
+                if (logPath != null && !logPath.isEmpty()) {
+                    return logPath;
+                }
+            } catch (Exception e) {
+            }
         }
-        return logPath;
+        rootLogger.warn("缺少logback配置文件. 您可以使用的文件名有: {}", LOGBACK_XML_FILENAME_LIST);
+        return "logPath_IS_UNDEFINED";
     }
 
     static {
